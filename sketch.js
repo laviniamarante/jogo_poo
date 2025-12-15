@@ -6,7 +6,8 @@ let alturaPlat = 198;
 let florAltura = 100; 
 let florLargura = 80;
 let cameraX = 0;
-let npcs = [];
+let npcs = []
+
 
 // variáveis para debug
 let colFlor = false, colApicultor = false, colHomem = false, abelhaCaiu = false;
@@ -34,13 +35,13 @@ function setup() {
   
  
   let alturaFlor = imgFlor.height * 0.18;
-  florInimigo = new Flor(700, topoPlat - alturaFlor, alturaFlor, 100, imgFlor, 2);
+  florInimigo = new Flor(700, topoPlat  - alturaFlor, alturaFlor, 100, imgFlor, 2);
 
   let alturaApi = imgApi.height * 0.6;
   apicultor = new Apicultor(1000, topoPlat - alturaApi, 800, 60, 70, 2, imgApi);
 
   let alturaHomem = imgHomem.height * 0.6;
-  homem = new Homem(1500, topoPlat - alturaHomem, 500, 60, 70, 2, imgHomem);
+  homem = new Homem(1500, topoPlat  - alturaHomem, 500, 60, 70, 2, imgHomem);
 
   sol = new Sol(1100, 50, 500, 200, 150, imgSol);
 
@@ -62,7 +63,7 @@ function setup() {
 function draw() {
   background("rgba(123, 204, 255, 1)");
   push();
-  translate(cameraX, 0); //usamos o translate para que tudo apos ele seja deslocado junto a nossa camera
+  translate(cameraX, 0); 
   
   abelha.moverHorizontal();
   abelha.moverVertical();
@@ -79,7 +80,6 @@ function draw() {
   }
 
   cameraX = -abelha.x + 120;
-  abelha.gravidadeAbelha();
 
   sol.mostrar();
   

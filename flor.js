@@ -2,19 +2,23 @@ class Flor {
   constructor(x, y, altura, largura, img, vel) {
     this.x = x;
     this.y = y;
-    this.altura = altura;
-    this.largura = largura;
     this.img = img;
     this.vel = vel;
 
-    this.img.resize(0, altura);
+    if (this.img instanceof p5.Image) {
+      this.img.resize(0, altura);
+      this.largura = this.img.width;
+      this.altura = this.img.height;
+    } else {
+      this.largura = largura;
+      this.altura = altura;
+    }
   }
 
   mostrar() {
-    image(this.img, this.x - 15, this.y);
-    noFill();
-    stroke("red");
-    rect(this.x, this.y, this.largura, this.altura);
+    image(this.img, this.x, this.y);
+    //noFill();
+    //stroke("red");
+    //rect(this.x, this.y, this.largura, this.altura);
   }
 }
-
